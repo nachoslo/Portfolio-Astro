@@ -3,7 +3,6 @@ import { pages, contact } from "../assets/data.tsx";
 
 const currentPath = Astro.url.pathname;
 ---
-
 <footer
   class="px-6 py-16 grid grid-cols-2 list-none bg-neutral-100 dark:bg-neutral-950 md:grid-cols-3 xl:px-8 xl:grid-cols-4"
 >
@@ -32,7 +31,7 @@ const currentPath = Astro.url.pathname;
                 },
               ]}
             >
-              {currentPath === `${page.href}/` ? `/ ${page.title}` : page.title}
+              {currentPath === `${page.href}` ? `/ ${page.title}` : page.title}
             </a>
           </li>
         ))
