@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname;
                 },
               ]}
             >
-              {currentPath === page.href ? `/ ${page.title}` : page.title}
+              {currentPath === `${page.href}/` ? `/ ${page.title}` : page.title}
             </a>
           </li>
         ))
