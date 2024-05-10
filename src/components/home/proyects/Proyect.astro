@@ -9,7 +9,18 @@ const { title, year, desc, href, src, srcMobile, alt, hash, css } = Astro.props;
 >
   <h4 class="mb-2">
     {title}
-    <span class="text-neutral-400 text-sm dark:text-neutral-500">- {year}</span>
+    {
+      href ? (
+        <span class="text-neutral-400 text-sm dark:text-neutral-500">
+          - {year}
+        </span>
+      ) : (
+        <span class="text-neutral-400 text-sm dark:text-neutral-500">
+          - {year}
+          <span class="text-xs text-neutral-700 text-ellipsis">(offline)</span>
+        </span>
+      )
+    }
   </h4>
   <ProyectContent
     desc={desc}

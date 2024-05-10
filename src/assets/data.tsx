@@ -137,7 +137,7 @@ export const proyects: {
   css: CssValues & Dark;
 }[] = [
   {
-    title: "Cris MJ - Official Website",
+    title: "Cris MJ Official Website",
     year: "2024",
     desc: "Sitio oficial del cantante chileno Cris MJ.",
     href: "",
@@ -419,7 +419,6 @@ export const bucketlist: { made: string[]; do: string[] } = {
   made: [
     "Conocer Estados Unidos",
     "Ser programador",
-    "Dedicarme a lo que me apasiona",
   ],
   do: [
     "Crear mi propia Startup",

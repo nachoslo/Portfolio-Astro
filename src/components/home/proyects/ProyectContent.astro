@@ -35,7 +35,7 @@ const { desc, href, src, srcMobile, alt, hash, css } = Astro.props;
             alt={alt}
             loading="eager"
             class:list={[
-              `relative block w-full border ${css.borderImg} border-b-0 rounded-t-2xl drop-shadow-md transition-all z-10 translate-y-4 group-hover:translate-y-0.5 ${css.dark.borderImg}`,
+              `relative block w-full border ${css.borderImg} border-b-0 rounded-t-xl drop-shadow-md transition-all z-10 translate-y-4 group-hover:translate-y-0.5 ${css.dark.borderImg}`,
               {
                 "": href,
                 "cursor-not-allowed": !href,
