@@ -514,7 +514,7 @@ export const apps: { name: string; icon: ImageMetadata }[] = [
     icon: CUANDO_LLEGA,
   },
   {
-    name: "World App Llega",
+    name: "World App",
     icon: WORLD_APP,
   },
 ];
