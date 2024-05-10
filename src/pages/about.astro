@@ -1,0 +1,18 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import AboutText from "../components/about/AboutText.astro";
+import BucketList from "../components/about/bucketlist/BucketList.astro";
+import Apps from "../components/about/apps/Apps.astro";
+import Music from "../components/about/music/Music.astro";
+import TechStackAbout from "../components/about/TechStackAbout.astro";
+---
+
+<ContentLayout title="About" desc="+2 años de experiancia como desarrollador con un amplio stack de tecnologías.">
+  <main class="px-6 pt-4">
+    <AboutText />
+    <TechStackAbout />
+    <BucketList />
+    <Apps />
+    <Music />
+  </main>
+</ContentLayout>

@@ -1,0 +1,40 @@
+---
+import Proyect from "./Proyect.astro";
+import { proyects } from "../../../assets/data";
+---
+
+<section class="px-6 pt-4 xl:px-8 xl:pt-6">
+  <!-- el h-10 es igual al de la foto para que quede centrado pixel perfect -->
+  <h3 class="font-semibold text-lg mb-4 flex items-center xl:h-10 xl:mb-3">
+    Proyects
+  </h3>
+  <div class="group/opacity px-1 md:px-2">
+    {
+      proyects.map(
+        ({
+          title,
+          year,
+          desc,
+          href,
+          src,
+          srcMobile,
+          alt,
+          hash,
+          css,
+        }) => (
+          <Proyect
+            title={title}
+            year={year}
+            desc={desc}
+            href={href}
+            src={src}
+            srcMobile={srcMobile}
+            alt={alt}
+            hash={hash}
+            css={css}
+          />
+        )
+      )
+    }
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import { contact } from "../../assets/data";
+import PROFILE from "/public/profile.webp";
+---
+
+<aside
+  class="w-full h-full px-6 py-4 flex flex-col justify-between xl:sticky xl:top-0 xl:max-w-lg xl:min-h-svh xl:px-8 xl:py-6"
+>
+  <div>
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <Image src={PROFILE} alt="Nacho.dev profile" loading="eager" class="w-10 rounded-full" />
+        <span>Nacho</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="relative w-2 h-2 flex">
+          <span
+            class="animate-ping absolute inline-flex w-full h-full bg-green-400 rounded-full opacity-75 dark:bg-green-200"
+          ></span>
+          <span
+            class="relative inline-flex w-2 h-2 bg-green-500 rounded-full dark:bg-green-300"
+          ></span>
+        </span>
+        <span class="text-xs text-green-500 dark:text-green-300"
+          >Open to work</span
+        >
+      </div>
+    </div>
+    <h1 class="font-semibold text-2xl w-full mt-8">
+      Design & Building software
+    </h1>
+    <h2 class="text-neutral-400 w-full mt-1 dark:text-neutral-500">
+      JavaScript Developer
+    </h2>
+    <div class="mt-8">
+      <h3 class="flex items-center gap-2">
+        <span class="font-bold text-xl">+2</span>
+        años Desarrollador Frontend.
+      </h3>
+      <h3 class="flex items-center gap-2">
+        <span class="font-bold text-xl">+1</span>
+        año Desarrollador Backend.
+      </h3>
+    </div>
+  </div>
+  <div class="group hidden w-fit items-center gap-4 xl:flex">
+    {
+      contact.map((item) => (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noreferrer"
+          class="transition-all group-hover:opacity-30 hover:!opacity-100 hover:-translate-y-2"
+        >
+          <item.svg />
+        </a>
+      ))
+    }
+  </div>
+</aside>

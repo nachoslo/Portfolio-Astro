@@ -1,0 +1,42 @@
+---
+import { apps } from "../../../assets/data";
+import App from "./App.astro";
+---
+
+<section class="mb-14"> <!-- el slider tiene py-2 y 14 para llegar a 16 -->
+  <h2 class="font-semibold max-w-xl mx-auto mb-8">Aplicaciones que uso</h2>
+  <div class="group max-w-2xl mx-auto container-apps py-2 flex overflow-hidden">
+    <div class="slider flex items-center gap-8">
+      {apps.map((app) => <App name={app.name} icon={app.icon} />)}
+      {apps.map((app) => <App name={app.name} icon={app.icon} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider {
+    animation: slider 30s linear infinite;
+  }
+
+  .container-apps {
+    -webkit-mask:
+      linear-gradient(to right, black 30%, transparent 98%) right,
+      linear-gradient(to left, black 30%, transparent 100%) left;
+    -webkit-mask-size: 51% 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .container-apps:hover .slider {
+    animation-play-state: paused;
+  }
+
+  @keyframes slider {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+</style>

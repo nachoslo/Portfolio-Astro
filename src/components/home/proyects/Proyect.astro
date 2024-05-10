@@ -1,0 +1,23 @@
+---
+import ProyectContent from "./ProyectContent.astro";
+
+const { title, year, desc, href, src, srcMobile, alt, hash, css } = Astro.props;
+---
+
+<article
+  class="mb-8 last:mb-0 xl:transition-opacity xl:hover:!opacity-100 xl:group-hover/opacity:opacity-30"
+>
+  <h4 class="mb-2">
+    {title}
+    <span class="text-neutral-400 text-sm dark:text-neutral-500">- {year}</span>
+  </h4>
+  <ProyectContent
+    desc={desc}
+    href={href}
+    src={src}
+    srcMobile={srcMobile}
+    alt={alt}
+    hash={hash}
+    css={css}
+  />
+</article>

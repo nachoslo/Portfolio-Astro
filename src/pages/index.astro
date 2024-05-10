@@ -1,0 +1,16 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import Home from "../components/home/Home.astro";
+import TechStack from "../components/home/tech-stack/TechStack.astro";
+import Proyects from "../components/home/proyects/Proyects.astro";
+---
+
+<ContentLayout title="Nacho.dev" desc="Diseño y construccion de software.">
+  <main class="flex flex-col xl:flex-row">
+    <Home />
+    <div class="overflow-hidden">
+      <Proyects />
+      <TechStack />
+    </div>
+  </main>
+</ContentLayout>

@@ -1,0 +1,26 @@
+---
+import { timeline } from "../../assets/data";
+---
+
+<section class="max-w-xl mx-auto">
+  <h1 class="font-semibold text-lg">Experience</h1>
+  <ol class="relative text-sm flex flex-col mt-8 mb-16">
+    {
+      timeline.map((res) => (
+        <li class="relative flex mb-16 z-10 even:justify-end even:pl-8 odd:text-end odd:pr-8">
+          <span class="absolute top-1.5 left-[49%] w-2 h-2 bg-neutral-400 rounded-full dark:bg-neutral-500 md:left-[49.5%]" />
+          <div class="w-1/2">
+            <time class="text-neutral-400 dark:text-neutral-500">{res.date}</time>
+            {res.experiences.map((experience) => (
+              <article class="mb-8">
+                <h2 class="font-semibold text-base mt-4">{experience.title}</h2>
+                <p class="text-neutral-500 mt-2 dark:text-neutral-400">{experience.desc}</p>
+              </article>
+            ))}
+          </div>
+        </li>
+      ))
+    }
+    <span class="absolute top-0 left-1/2 w-px h-full bg-neutral-200 dark:bg-neutral-900"></span>
+  </ol>
+</section>

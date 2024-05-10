@@ -1,0 +1,74 @@
+---
+import { pages, contact } from "../assets/data.tsx";
+---
+
+<footer
+  class="px-6 py-16 grid grid-cols-2 list-none bg-neutral-100 dark:bg-neutral-950 md:grid-cols-3 xl:px-8 xl:grid-cols-4"
+>
+  <!-- TOP SIDE -->
+  <div class="col-span-2 mb-16 md:col-span-3 xl:col-span-1">
+    <h2 class="font-semibold mb-1">Nacho.dev</h2>
+    <h3 class="text-neutral-500 text-sm dark:text-neutral-400">
+      Building digital products.
+    </h3>
+  </div>
+  <div class="xl:mx-auto">
+    <h4 class="font-semibold mb-4">Pages</h4>
+    <ul class="text-neutral-400 text-sm space-y-2 dark:text-neutral-600">
+      {
+        pages.map((page) => (
+          <li>
+            <a
+              href={page.href}
+              class:list={[
+                "transition-colors cursor-pointer",
+                {
+                  "text-neutral-500 dark:text-neutral-400":
+                    Astro.url.pathname === page.href,
+                  "hover:text-neutral-500 dark:hover:text-neutral-400":
+                    Astro.url.pathname !== page.href,
+                },
+              ]}
+            >
+              {Astro.url.pathname === page.href
+                ? `/ ${page.title}`
+                : page.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="xl:mx-auto">
+    <h4 class="font-semibold mb-4">Connect</h4>
+    <ul class="text-neutral-400 text-sm space-y-2 dark:text-neutral-600">
+      {
+        contact.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="transition-colors cursor-alias hover:text-neutral-500 dark:hover:text-neutral-400"
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div
+    class="col-span-2 text-neutral-400 text-xs mt-16 dark:text-neutral-600 md:col-span-1 md:mt-0 xl:text-end"
+  >
+    <span>para cambiar a modo claro / oscuro, cambie su configuracion de sistema!</span>
+  </div>
+  <div
+    class="col-span-2 w-full h-0.5 my-8 border-b border-dashed border-neutral-200 dark:border-neutral-900 md:col-span-3 xl:col-span-4 2xl:my-16"
+  >
+  </div>
+  <div
+    class="col-span-2 text-neutral-400 text-xs flex flex-col justify-between items-center gap-2 dark:text-neutral-600 md:col-span-3 md:text-end md:flex-row xl:col-span-4"
+  >
+    <span>Hecha con: TypeScript, Astro & Tailwind CSS</span>
+    <span>Copyright Nacho.dev 2024 ©</span>
+  </div>
+</footer>

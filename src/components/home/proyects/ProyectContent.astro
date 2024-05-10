@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+const { desc, href, src, srcMobile, alt, hash, css } = Astro.props;
+---
+
+<div class="text-xs">
+  <div
+    class="group relative px-8 pt-12 bg-neutral-100 rounded-md overflow-hidden dark:bg-neutral-950"
+  >
+    <div class="flex flex-col md:items-center">
+      <p
+        class="text-neutral-500 mt-0.5 mb-4 opacity-0 transition-opacity z-10 group-hover:opacity-100 dark:text-neutral-400 md:mb-0 2xl:mt-8"
+      >
+        {desc}
+      </p>
+      <div class="flex items-end gap-2 md:gap-4">
+        <a href={href ? href : null} target="_blank" rel="noreferrer">
+          <Image
+            src={srcMobile}
+            alt={alt}
+            loading="eager"
+            class:list={[
+              "relative block w-full rounded-t-md drop-shadow-md transition-all z-10 translate-y-12 group-hover:translate-y-8 md:translate-y-20 md:group-hover:translate-y-16 2xl:translate-y-32 2xl:group-hover:translate-y-28",
+              {
+                "": href,
+                "cursor-not-allowed": !href,
+              },
+            ]}
+          />
+        </a>
+        <a href={href ? href : null} target="_blank" rel="noreferrer">
+          <Image
+            src={src}
+            alt={alt}
+            loading="eager"
+            class:list={[
+              `relative block w-full border ${css.borderImg} border-b-0 rounded-t-2xl drop-shadow-md transition-all z-10 translate-y-4 group-hover:translate-y-0.5 ${css.dark.borderImg}`,
+              {
+                "": href,
+                "cursor-not-allowed": !href,
+              },
+            ]}
+          />
+        </a>
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 w-full h-full opacity-0 transition-opacity group-hover:opacity-100"
+    >
+    </div>
+  </div>
+  <div class="w-full mt-4 flex flex-wrap items-center gap-2">
+    {
+      hash.map((tech: string) => (
+        <span
+          class={`${css.text} ${css.bg} px-2 py-1 rounded-full border ${css.border} ${css.dark.text} ${css.dark.bg} ${css.dark.border}`}
+        >
+          {tech}
+        </span>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .absolute {
+    background: radial-gradient(
+        circle at 50% 0,
+        #fff,
+        /* circle origen (1 tono menos q el bg-color) */ #d4d4d8
+          /* bottom corners */
+      ),
+      repeating-radial-gradient(
+        circle at 50% 0,
+        #d4d4d8,
+        /* top corners */ #d4d4d8 /* mid corners */
+      );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .absolute {
+      background: radial-gradient(circle at 50% 0, #26262675, #000),
+        repeating-radial-gradient(circle at 50% 0, #000, #000);
+    }
+  }
+</style>

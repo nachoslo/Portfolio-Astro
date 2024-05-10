@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import { music } from "../../../assets/data";
+---
+
+<section class="max-w-xl mx-auto mb-8 md:mb-0">
+  <h2 class="font-semibold mb-4">Music</h2>
+  <div class="flex flex-col gap-4">
+    {
+      music.map((artist) => (
+        <div class="flex items-center gap-4">
+          <div class="w-32 h-32">
+            <Image
+              src={artist.icon}
+              alt={`${artist.name} Spotify profile`}
+              loading="lazy"
+              class="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <div>
+            <h3 class="font-semibold text-sm">{artist.name}</h3>
+            <a
+              href={artist.link}
+              target="_blank"
+              rel="noreferrer"
+              class="text-neutral-400 text-xs transition-colors cursor-alias hover:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400"
+            >
+              Listen now
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

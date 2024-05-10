@@ -1,0 +1,19 @@
+---
+import { pages } from "../assets/data.tsx";
+---
+
+<header class="sticky bottom-8 w-fit mx-auto mb-8 mt-4 flex z-50 md:mt-14">
+  <nav
+    class="p-1 flex items-center bg-neutral-100/90 backdrop-blur-sm border border-neutral-50 rounded-full shadow-md list-none dark:bg-neutral-950/90 dark:border-neutral-900"
+  >
+    {
+      pages.map((page) => (
+        <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
+          <a href={page.href} class="px-6 py-3">
+            {page.title}
+          </a>
+        </li>
+      ))
+    }
+  </nav>
+</header>

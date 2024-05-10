@@ -1,0 +1,75 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  desc?: string;
+}
+
+const { title, desc } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={desc} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="keywords"
+      content="Programmer, Programador, Nacho developer, Nacho.dev, Argentina, Fullstack"
+    />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://nachobaez.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nacho.dev" />
+    <meta
+      property="og:description"
+      content="Diseño y construccion de software."
+    />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="nachobaez.netlify.app" />
+    <meta property="twitter:url" content="https://nachobaez.netlify.app/" />
+    <meta name="twitter:title" content="Nacho.dev" />
+    <meta
+      name="twitter:description"
+      content="Diseño y construccion de software."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="canonical" href="https://nachobaez.netlify.com/" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-white text-neutral-950 dark:text-neutral-50 dark:bg-black">
+    <div class="wrapper"></div>
+    <slot />
+    <Footer />
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+      html {
+        font-family: "Inter", system-ui, sans-serif;
+      }
+
+      .wrapper {
+        background-image: url(/pimples.png);
+        opacity: 0.3;
+        top: -50%;
+        left: -50%;
+        bottom: -50%;
+        right: -50%;
+        position: fixed;
+        height: 200vh;
+        width: 200%;
+        z-index: 999999;
+        pointer-events: none;
+        animation: noise 0.2s infinite;
+      }
+    </style>
+  </body>
+</html>

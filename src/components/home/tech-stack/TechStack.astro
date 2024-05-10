@@ -1,0 +1,40 @@
+---
+import { techStack } from "../../../assets/data";
+import Icon from "./Icon.astro";
+---
+<section
+  class="group container-stack mt-8 mb-2 py-2 flex items-center md:mt-16 md:mb-0"
+>
+  <div class="slider flex gap-8">
+    {techStack.map((icon) => <Icon svg={icon.svg} name={icon.name} />)}
+    {techStack.map((icon) => <Icon svg={icon.svg} name={icon.name} />)}
+  </div>
+</section>
+
+<style>
+  .slider {
+    animation: slider 30s linear infinite;
+  }
+  
+  .container-stack {
+    -webkit-mask:
+      linear-gradient(to right, black 30%, transparent 98%) right,
+      linear-gradient(to left, black 30%, transparent 100%) left;
+    -webkit-mask-size: 51% 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .container-stack:hover .slider {
+    animation-play-state: paused;
+  }
+
+  @keyframes slider {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+</style>
