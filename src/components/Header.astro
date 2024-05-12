@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { pages } from "../assets/data.tsx";
 ---
 
@@ -9,7 +10,7 @@ import { pages } from "../assets/data.tsx";
     {
       pages.map((page) => (
         <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
-          <a href={page.href} class="px-6 py-3">
+          <a href={getRelativeLocaleUrl("en", page.href)} class="px-6 py-3">
             {page.title}
           </a>
         </li>
