@@ -50,25 +50,3 @@ const { currentLocale } = Astro;
     >
   </div>
 </button>
-
-<!-- <script>
-  //menu-lang agregar al div la class
-  document.addEventListener("astro:page-load", () => {
-    const button = document.querySelector(".btn");
-    const menu = document.querySelector(".menu-lang");
-
-    if (button instanceof HTMLButtonElement) {
-      button.addEventListener("mouseenter", () => {
-        if (menu instanceof HTMLDivElement) {
-          if (menu.classList.contains("!opacity-100")) {
-            /* button.classList.remove("bg-neutral-200", "dark:bg-neutral-900"); */
-            menu?.classList.remove("!opacity-100");
-          } else {
-            /* button.classList.add("bg-neutral-200", "dark:bg-neutral-900"); */
-            menu?.classList.add("!opacity-100");
-          }
-        }
-      });
-    }
-  });
-</script> -->
