@@ -1,9 +1,18 @@
 ---
 import ContentLayout from "../layouts/ContentLayout.astro";
 import Timeline from "../components/experience/Timeline.astro";
+import { getI18N } from "../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
-<ContentLayout title="Experience" desc="+2 años de experiancia como desarrollador con un amplio stack de tecnologías.">
+<ContentLayout
+  title={i18n?.text.EXPERIENCE_H1}
+  desc={i18n?.text.EXPERIENCE_SEO_DESC}
+>
   <main class="px-6 pt-4">
     <Timeline />
   </main>

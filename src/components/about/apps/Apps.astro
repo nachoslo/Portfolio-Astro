@@ -1,10 +1,17 @@
 ---
 import { apps } from "../../../assets/data";
+import { getI18N } from "../../../i18n";
 import App from "./App.astro";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
-<section class="mb-14"> <!-- el slider tiene py-2 y 14 para llegar a 16 -->
-  <h2 class="font-semibold max-w-xl mx-auto mb-8">Aplicaciones que uso</h2>
+<section class="mb-14">
+  <!-- el slider tiene py-2 y 14 para llegar a 16 -->
+  <h2 class="font-semibold max-w-xl mx-auto mb-8">{i18n?.text.ABOUT_APPS_H2}</h2>
   <div class="group max-w-2xl mx-auto container-apps py-2 flex overflow-hidden">
     <div class="slider flex items-center gap-8">
       {apps.map((app) => <App name={app.name} icon={app.icon} />)}

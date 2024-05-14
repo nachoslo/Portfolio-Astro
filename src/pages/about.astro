@@ -5,9 +5,18 @@ import BucketList from "../components/about/bucketlist/BucketList.astro";
 import Apps from "../components/about/apps/Apps.astro";
 import Music from "../components/about/music/Music.astro";
 import TechStackAbout from "../components/about/TechStackAbout.astro";
+import { getI18N } from "../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
-<ContentLayout title="About" desc="+2 años de experiancia como desarrollador con un amplio stack de tecnologías.">
+<ContentLayout
+  title={i18n?.text.ABOUT_H1}
+  desc={i18n?.text.EXPERIENCE_SEO_DESC}
+>
   <main class="px-6 pt-4">
     <AboutText />
     <TechStackAbout />

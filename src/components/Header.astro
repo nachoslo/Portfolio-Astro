@@ -1,20 +1,31 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { pages } from "../assets/data.tsx";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getI18N } from "../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <header class="sticky bottom-8 w-fit mx-auto mb-8 mt-4 flex z-50 md:mt-14">
   <nav
     class="p-1 flex items-center bg-neutral-100/90 backdrop-blur-sm border border-neutral-50 rounded-full shadow-md list-none dark:bg-neutral-950/90 dark:border-neutral-900"
   >
-    {
-      pages.map((page) => (
-        <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
-          <a href={getRelativeLocaleUrl("en", page.href)} class="px-6 py-3">
-            {page.title}
-          </a>
-        </li>
-      ))
-    }
+    <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
+      <a href={getRelativeLocaleUrl(lang, "/")} class="px-6 py-3">
+        {i18n?.text.NAV_LINK_1}
+      </a>
+    </li>
+    <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
+      <a href={getRelativeLocaleUrl(lang, "/about")} class="px-6 py-3">
+        {i18n?.text.NAV_LINK_2}
+      </a>
+    </li>
+    <li class="flex rounded-full hover:bg-white dark:hover:bg-black">
+      <a href={getRelativeLocaleUrl(lang, "/experience")} class="px-6 py-3">
+        {i18n?.text.NAV_LINK_3}
+      </a>
+    </li>
   </nav>
 </header>

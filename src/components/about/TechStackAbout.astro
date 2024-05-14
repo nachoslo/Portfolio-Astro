@@ -1,5 +1,11 @@
 ---
 import { techStack } from "../../assets/data";
+import { getI18N } from "../../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <section class="max-w-xl mx-auto mb-16">
@@ -7,7 +13,7 @@ import { techStack } from "../../assets/data";
   <button
     class="show text-sm px-2 py-1 flex items-center gap-2 border border-neutral-200 rounded-md shadow-sm transition-colors hover:bg-neutral-50 dark:border-neutral-900 dark:hover:bg-neutral-950"
   >
-    <span>Abrir Tech Stack</span>
+    <span>{i18n?.text.ABOUT_OPEN_TECH_STACK}</span>
     <svg viewBox="0 -960 960 960" class="w-6"
       ><path
         fill="currentColor"

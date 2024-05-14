@@ -1,7 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import { contact } from "../../assets/data";
+import { getI18N } from "../../i18n";
 import PROFILE from "/public/profile.webp";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <aside
@@ -10,7 +16,12 @@ import PROFILE from "/public/profile.webp";
   <div>
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-2">
-        <Image src={PROFILE} alt="Nacho.dev profile" loading="eager" class="w-10 rounded-full" />
+        <Image
+          src={PROFILE}
+          alt="Nacho.dev profile"
+          loading="eager"
+          class="w-10 rounded-full"
+        />
         <span>Nacho</span>
       </div>
       <div class="flex items-center gap-1">
@@ -23,24 +34,24 @@ import PROFILE from "/public/profile.webp";
           ></span>
         </span>
         <span class="text-xs text-green-500 dark:text-green-300"
-          >Open to work</span
+          >{i18n?.text.HOME_OPEN_TO_WORK}</span
         >
       </div>
     </div>
     <h1 class="font-semibold text-2xl w-full mt-8">
-      Design & Building software
+      {i18n?.text.HOME_H1}
     </h1>
     <h2 class="text-neutral-400 w-full mt-1 dark:text-neutral-500">
-      JavaScript Developer
+      {i18n?.text.HOME_H2}
     </h2>
-    <div class="mt-8">
+    <div class="mt-8 text-sm">
       <h3 class="flex items-center gap-2">
         <span class="font-bold text-xl">+2</span>
-        años Desarrollador Frontend.
+        {i18n?.text.HOME_EXPERIENCE_YEARS}
       </h3>
       <h3 class="flex items-center gap-2">
         <span class="font-bold text-xl">+1</span>
-        año Desarrollador Backend.
+        {i18n?.text.HOME_EXPERIENCE_YEARS_2}
       </h3>
     </div>
   </div>

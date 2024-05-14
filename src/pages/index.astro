@@ -3,9 +3,15 @@ import ContentLayout from "../layouts/ContentLayout.astro";
 import Home from "../components/home/Home.astro";
 import TechStack from "../components/home/tech-stack/TechStack.astro";
 import Proyects from "../components/home/proyects/Proyects.astro";
+import { getI18N } from "../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
-<ContentLayout title="Nacho.dev" desc="Diseño y construccion de software.">
+<ContentLayout title="Nacho.dev" desc={i18n?.text.HOME_SEO_DESC}>
   <main class="flex flex-col xl:flex-row">
     <Home />
     <div class="overflow-hidden">

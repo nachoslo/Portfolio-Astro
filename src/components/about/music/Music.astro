@@ -1,10 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import { music } from "../../../assets/data";
+import { getI18N } from "../../../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <section class="max-w-xl mx-auto mb-8 md:mb-0">
-  <h2 class="font-semibold mb-4">Música</h2>
+  <h2 class="font-semibold mb-4">{i18n?.text.ABOUT_MUSIC_H2}</h2>
   <div class="flex flex-col gap-4">
     {
       music.map((artist) => (
@@ -25,7 +31,7 @@ import { music } from "../../../assets/data";
               rel="noreferrer"
               class="text-neutral-400 text-xs transition-colors cursor-alias hover:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400"
             >
-              Listen now
+              {i18n?.text.ABOUT_MUSIC_LISTEN_NOW}
             </a>
           </div>
         </div>

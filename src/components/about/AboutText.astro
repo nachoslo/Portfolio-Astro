@@ -1,10 +1,18 @@
 ---
 import { Image } from "astro:assets";
+import { getI18N } from "../../i18n";
 import PROFILE from "/public/profile.webp";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <section>
-  <h1 class="font-semibold text-lg max-w-xl mx-auto mb-4">About Nacho</h1>
+  <h1 class="font-semibold text-lg max-w-xl mx-auto mb-4">
+    {i18n?.text.ABOUT_H1}
+  </h1>
   <div
     class="relative w-full max-w-2xl h-40 mx-auto mb-12 bg-[url('/about-banner.webp')] bg-cover bg-center rounded-2xl"
   >
@@ -17,26 +25,6 @@ import PROFILE from "/public/profile.webp";
   </div>
   <p
     class="text-neutral-500 text-sm max-w-xl mx-auto my-16 leading-8 dark:text-neutral-400"
-  >
-    Mi nombre es Ignacio Manuel Baez y me dicen
-    <span
-      class="text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800"
-      >Nacho</span
-    >. Soy un
-    <span
-      class="text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800"
-    >
-      Desarrollador Full Stack
-    </span> de la ciudad de
-    <span
-      class="text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800"
-      >Mar del Plata</span
-    >, Buenos Aires, Argentina. Me dedico a la creación de sitios web, software
-    y aplicaciónes. Comencé a formarme en el año
-    <span
-      class="text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800"
-      >2022</span
-    > y es hasta el día de hoy que sigo, estudiando, aprendiendo y adaptándome a
-    nuevos métodos y tecnologías.
-  </p>
+    set:html={i18n?.text.ABOUT_P}
+  />
 </section>

@@ -3,8 +3,8 @@ import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
 
 interface Props {
-  title: string;
-  desc?: string;
+  title: string | undefined;
+  desc?: string | undefined;
 }
 
 const { title, desc } = Astro.props;
@@ -12,5 +12,5 @@ const { title, desc } = Astro.props;
 
 <Layout title={title} desc={desc}>
   <slot />
-  <Header/>
+  <Header />
 </Layout>

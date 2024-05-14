@@ -1,4 +1,3 @@
-import type { ImageMetadata } from "astro";
 /* ICONS */
 import CUENTA_DNI from "../assets/icons/cuentadni.webp";
 import DISCORD from "../assets/icons/discord.webp";
@@ -33,31 +32,297 @@ import TODO_MOBILE from "../assets/images/todo-mobile.webp";
 import CRIS_MJ from "../assets/images/crismj.webp";
 import JORY_BOY from "../assets/images/jory.webp";
 import JAIRO_VERA from "../assets/images/jairovera.webp";
+/* TYPES */
+import type { Apps, Contact, Music, TechStack, UI } from "./types";
+import type { ReactElement } from "react";
 
-export const pages: { title: string; href: string }[] = [
-  {
-    title: "Home",
-    href: "/",
+export const UI_ES: UI = {
+  text: {
+    NAV_LINK_1: "Inicio",
+    NAV_LINK_2: "Acerca",
+    NAV_LINK_3: "Experiencia",
+    HOME_SEO_DESC: "Diseño y construcción de software.",
+    HOME_OPEN_TO_WORK: "Disponible para trabajar",
+    HOME_H1: "Diseño y construcción de software",
+    HOME_H2: "Desarrollador JavaScript",
+    HOME_EXPERIENCE_YEARS: "años Desarrollador Frontend",
+    HOME_EXPERIENCE_YEARS_2: "año Desarrollador Full Stack",
+    HOME_PROYECTS_H3: "Proyectos",
+    ABOUT_H1: "Acerca de Nacho",
+    ABOUT_P:
+      "Mi nombre es Ignacio Manuel Baez y me dicen <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Nacho</span>. Soy un <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Desarrollador Full Stack</span> de la ciudad de <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Mar del Plata</span>, Buenos Aires, Argentina. Me dedico a la creación de sitios web, software y aplicaciónes. Comencé a formarme en el año <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800' >2022</span> y es hasta el día de hoy que sigo, estudiando, aprendiendo y adaptándome a nuevos métodos y tecnologías.",
+    ABOUT_OPEN_TECH_STACK: "Abrir Tech Stack",
+    ABOUT_APPS_H2: "Aplicaciones que utilizo",
+    ABOUT_MUSIC_H2: "Música",
+    ABOUT_MUSIC_LISTEN_NOW: "Escuchar ahora",
+    EXPERIENCE_SEO_DESC:
+      "+2 años de experiencia como desarrollador con un amplio stack de tecnologías.",
+    EXPERIENCE_H1: "Experiencia",
+    FOOTER_H3: "Creando productos digitales.",
+    FOOTER_PAGES_H4: "Páginas",
+    FOOTER_CONNECT_H4: "Conectar",
+    FOOTER_THEME_SPAN:
+      "para cambiar a modo claro / oscuro, cambie su configuración de sistema!",
+    FOOTER_MADEWITH_SPAN: "Hecha con: TypeScript, Astro & Tailwind CSS",
   },
-  {
-    title: "About",
-    href: "/about",
+  proyects: [
+    {
+      title: "Cris MJ Official Website",
+      year: "2024",
+      desc: "Sitio oficial del cantante chileno Cris MJ",
+      href: "",
+      src: MJ,
+      srcMobile: MJ_MOBILE,
+      alt: "Cris MJ website oficial, proyecto desarrollado por Nacho.dev",
+      hash: ["Astro", "TypeScript", "React", "Tailwind CSS"],
+      css: {
+        text: "text-amber-500",
+        bg: "bg-amber-100",
+        border: "border-amber-200",
+        borderImg: "border-neutral-300",
+        dark: {
+          text: "dark:text-amber-300",
+          bg: "dark:bg-yellow-950/20",
+          border: "dark:border-yellow-900",
+          borderImg: "dark:border-neutral-800",
+        },
+      },
+    },
+    {
+      title: "Balancy",
+      year: "2024",
+      desc: "Organiza los datos de tus billeteras virtuales y cuentas bancarias de forma simple",
+      href: "https://balancy.vercel.app/",
+      src: BALANCY,
+      srcMobile: BALANCY_MOBILE,
+      alt: "Balancy, proyecto full stack realizado por Nacho.dev",
+      hash: ["Node.js", "Express.js", "MongoDB", "React", "Tailwind CSS"],
+      css: {
+        text: "text-rose-400",
+        bg: "bg-rose-100",
+        border: "border-rose-200",
+        borderImg: "border-neutral-300",
+        dark: {
+          text: "dark:text-rose-600",
+          bg: "dark:bg-rose-950/20",
+          border: "dark:border-rose-950",
+          borderImg: "dark:border-neutral-900",
+        },
+      },
+    },
+    {
+      title: "To Do",
+      year: "2023",
+      desc: "Gestiona tus tareas y organiza tu rutina creando múltiples notas",
+      href: "https://todo-nacho.netlify.app/",
+      src: TODO,
+      srcMobile: TODO_MOBILE,
+      alt: "To do, proyecto frontend realizado por Nacho.dev",
+      hash: ["React", "Vite", "CSS"],
+      css: {
+        text: "text-pink-400",
+        bg: "bg-pink-100",
+        border: "border-pink-200",
+        borderImg: "border-neutral-400",
+        dark: {
+          text: "dark:text-pink-600",
+          bg: "dark:bg-pink-950/20",
+          border: "dark:border-pink-900",
+          borderImg: "dark:border-neutral-100",
+        },
+      },
+    },
+  ],
+  bucketlist: {
+    made: ["Conocer Estados Unidos", "Ser programador"],
+    do: [
+      "Fundar mi propia Startup",
+      "Volver a Estados Unidos",
+      "Conocer Europa",
+      "Ir a la FIFA World Cup 2026",
+    ],
   },
-  {
-    title: "Experience",
-    href: "/experience",
-  },
-];
+  timeline: [
+    {
+      date: "2024",
+      experiences: [
+        {
+          title: "Cris MJ Sitio Oficial",
+          desc: "Diseño y construcción del sitio oficial del cantante chileno Cris MJ. Contiene galería de imágenes, información de sus tours, biografía, previews y lanzamientos, cronología de sus canciones",
+        },
+        {
+          title: "Shopify e-commerce",
+          desc: "Tienda de anteojos de sol para cliente de Austria",
+        },
+      ],
+    },
+    {
+      date: "2023",
+      experiences: [
+        {
+          title: "Freelance",
+          desc: "Corrección y solución de código, diseño y construcción de landing pages, portafolios y componentes",
+        },
+      ],
+    },
+    {
+      date: "2022",
+      experiences: [
+        {
+          title: "Freelance",
+          desc: "Diseño y construcción de landing pages y e-commerce con Tienda Nube",
+        },
+      ],
+    },
+  ],
+};
 
-export const contact: {
-  title: string;
-  href: string;
-  svg: React.ComponentType;
-}[] = [
+export const UI_EN: UI = {
+  text: {
+    NAV_LINK_1: "Home",
+    NAV_LINK_2: "About",
+    NAV_LINK_3: "Experience",
+    HOME_SEO_DESC: "Design and building software.",
+    HOME_OPEN_TO_WORK: "Open to work",
+    HOME_H1: "Design & Building software",
+    HOME_H2: "JavaScript Developer",
+    HOME_EXPERIENCE_YEARS: "years Frontend Developer",
+    HOME_EXPERIENCE_YEARS_2: "year Full Stack Developer",
+    HOME_PROYECTS_H3: "Proyects",
+    ABOUT_H1: "About Nacho",
+    ABOUT_P:
+      "My name is Ignacio Manuel Baez and they call me <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Nacho</span>. I am a <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Full Stack Developer</span> from the city of <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800'>Mar del Plata</span>, Buenos Aires, Argentina. I specialize in creating websites, software, and applications.  I started my training in <span class='text-nowrap text-neutral-900 px-2 py-px bg-neutral-100 border border-neutral-200 rounded-md dark:text-neutral-300 dark:bg-neutral-900 dark:border-neutral-800' >2022</span> and to this day, I continue studying, learning, and adapting to new methods and technologies.",
+    ABOUT_OPEN_TECH_STACK: "Open Tech Stack",
+    ABOUT_APPS_H2: "Applications that I use",
+    ABOUT_MUSIC_H2: "Music",
+    ABOUT_MUSIC_LISTEN_NOW: "Listen now",
+    EXPERIENCE_SEO_DESC:
+      "+2 years of experience as a developer with a broad stack of technologies.",
+    EXPERIENCE_H1: "Experience",
+    FOOTER_H3: "Building digital products.",
+    FOOTER_PAGES_H4: "Pages",
+    FOOTER_CONNECT_H4: "Connect",
+    FOOTER_THEME_SPAN:
+      "to switch to light/dark mode, change your system settings!",
+    FOOTER_MADEWITH_SPAN: "Made with: TypeScript, Astro & Tailwind CSS",
+  },
+  proyects: [
+    {
+      title: "Cris MJ Official Website",
+      year: "2024",
+      desc: "Official website of Chilean singer Cris MJ",
+      href: "",
+      src: MJ,
+      srcMobile: MJ_MOBILE,
+      alt: "Cris MJ official website, project developed by Nacho.dev.",
+      hash: ["Astro", "TypeScript", "React", "Tailwind CSS"],
+      css: {
+        text: "text-amber-500",
+        bg: "bg-amber-100",
+        border: "border-amber-200",
+        borderImg: "border-neutral-300",
+        dark: {
+          text: "dark:text-amber-300",
+          bg: "dark:bg-yellow-950/20",
+          border: "dark:border-yellow-900",
+          borderImg: "dark:border-neutral-800",
+        },
+      },
+    },
+    {
+      title: "Balancy",
+      year: "2024",
+      desc: "Organize the data from your virtual wallets and bank accounts in a simple way",
+      href: "https://balancy.vercel.app/",
+      src: BALANCY,
+      srcMobile: BALANCY_MOBILE,
+      alt: "Balancy, full-stack project developed by Nacho.dev.",
+      hash: ["Node.js", "Express.js", "MongoDB", "React", "Tailwind CSS"],
+      css: {
+        text: "text-rose-400",
+        bg: "bg-rose-100",
+        border: "border-rose-200",
+        borderImg: "border-neutral-300",
+        dark: {
+          text: "dark:text-rose-600",
+          bg: "dark:bg-rose-950/20",
+          border: "dark:border-rose-950",
+          borderImg: "dark:border-neutral-900",
+        },
+      },
+    },
+    {
+      title: "To Do",
+      year: "2023",
+      desc: "Manage your tasks and organize your routine by creating multiple notes",
+      href: "https://todo-nacho.netlify.app/",
+      src: TODO,
+      srcMobile: TODO_MOBILE,
+      alt: "To do, frontend project carried out by Nacho.dev.",
+      hash: ["React", "Vite", "CSS"],
+      css: {
+        text: "text-pink-400",
+        bg: "bg-pink-100",
+        border: "border-pink-200",
+        borderImg: "border-neutral-400",
+        dark: {
+          text: "dark:text-pink-600",
+          bg: "dark:bg-pink-950/20",
+          border: "dark:border-pink-900",
+          borderImg: "dark:border-neutral-100",
+        },
+      },
+    },
+  ],
+  bucketlist: {
+    made: ["Visit USA", "Be a programmer"],
+    do: [
+      "Found own my Startup",
+      "Return to USA",
+      "Visit Europa",
+      "Go to the FIFA World Cup 2026",
+    ],
+  },
+  timeline: [
+    {
+      date: "2024",
+      experiences: [
+        {
+          title: "Cris MJ Official Website",
+          desc: "Design and construction of the official website for Chilean singer Cris MJ. It includes an image gallery, tour information, biography, previews and releases, and a timeline of his songs",
+        },
+        {
+          title: "Shopify e-commerce",
+          desc: "Sunglasses store for an Austrian client",
+        },
+      ],
+    },
+    {
+      date: "2023",
+      experiences: [
+        {
+          title: "Freelance",
+          desc: "Correction and solution of code, design and construction of landing pages, portfolios, and components",
+        },
+      ],
+    },
+    {
+      date: "2022",
+      experiences: [
+        {
+          title: "Freelance",
+          desc: "Design and construction of landing pages and e-commerce with Tienda Nube",
+        },
+      ],
+    },
+  ],
+};
+
+export const contact: Contact = [
   {
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/nacho-baez/",
-    svg: () => {
+    svg: (): ReactElement => {
       return (
         <svg viewBox="0 0 24 24" className="w-6">
           <path
@@ -79,7 +344,9 @@ export const contact: {
           <path
             fill="currentColor"
             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z"
-          ><title>Email</title></path>
+          >
+            <title>Email</title>
+          </path>
         </svg>
       );
     },
@@ -93,7 +360,9 @@ export const contact: {
           <path
             fill="currentColor"
             d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-          ><title>GitHub</title></path>
+          >
+            <title>GitHub</title>
+          </path>
         </svg>
       );
     },
@@ -107,107 +376,19 @@ export const contact: {
           <path
             fill="currentColor"
             d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"
-          ><title>Instagram</title></path>
+          >
+            <title>Instagram</title>
+          </path>
         </svg>
       );
     },
   },
 ];
 
-type CssValues = {
-  text: string;
-  bg: string;
-  border: string;
-  borderImg: string;
-};
-
-type Dark = {
-  dark: CssValues;
-};
-
-export const proyects: {
-  title: string;
-  year: string;
-  desc: string;
-  href: string;
-  src: ImageMetadata;
-  srcMobile: ImageMetadata;
-  alt: string;
-  hash: string[];
-  css: CssValues & Dark;
-}[] = [
-  {
-    title: "Cris MJ Official Website",
-    year: "2024",
-    desc: "Sitio oficial del cantante chileno Cris MJ.",
-    href: "",
-    src: MJ,
-    srcMobile: MJ_MOBILE,
-    alt: "Cris MJ website oficial, proyecto desarrollado por Nacho.dev",
-    hash: ["Astro", "TypeScript", "React", "Tailwind CSS"],
-    css: {
-      text: "text-amber-500",
-      bg: "bg-amber-100",
-      border: "border-amber-200",
-      borderImg: "border-neutral-300",
-      dark: {
-        text: "dark:text-amber-300",
-        bg: "dark:bg-yellow-950/20",
-        border: "dark:border-yellow-900",
-        borderImg: "dark:border-neutral-800",
-      },
-    },
-  },
-  {
-    title: "Balancy",
-    year: "2024",
-    desc: "Organiza los datos de tus billeteras virtuales y cuentas bancarias de forma simple.",
-    href: "https://balancy.vercel.app/",
-    src: BALANCY,
-    srcMobile: BALANCY_MOBILE,
-    alt: "Balancy, proyecto full stack realizado por Nacho.dev",
-    hash: ["Node.js", "Express.js", "MongoDB", "React", "Tailwind CSS"],
-    css: {
-      text: "text-rose-400",
-      bg: "bg-rose-100",
-      border: "border-rose-200",
-      borderImg: "border-neutral-300",
-      dark: {
-        text: "dark:text-rose-600",
-        bg: "dark:bg-rose-950/20",
-        border: "dark:border-rose-950",
-        borderImg: "dark:border-neutral-900",
-      },
-    },
-  },
-  {
-    title: "To Do",
-    year: "2023",
-    desc: "Gestiona tus tareas y organiza tu rutina creando múltiples notas.",
-    href: "https://todo-nacho.netlify.app/",
-    src: TODO,
-    srcMobile: TODO_MOBILE,
-    alt: "To do, proyecto frontend realizado por Nacho.dev",
-    hash: ["React", "Vite", "CSS"],
-    css: {
-      text: "text-pink-400",
-      bg: "bg-pink-100",
-      border: "border-pink-200",
-      borderImg: "border-neutral-400",
-      dark: {
-        text: "dark:text-pink-600",
-        bg: "dark:bg-pink-950/20",
-        border: "dark:border-pink-900",
-        borderImg: "dark:border-neutral-100",
-      },
-    },
-  },
-];
-
-export const techStack: { name: string; svg: React.ComponentType }[] = [
+export const techStack: TechStack = [
   {
     name: "Typescript",
-    svg: () => {
+    svg: (): ReactElement => {
       return (
         <svg viewBox="0 0 24 24">
           <path
@@ -415,20 +596,7 @@ export const techStack: { name: string; svg: React.ComponentType }[] = [
   },
 ];
 
-export const bucketlist: { made: string[]; do: string[] } = {
-  made: [
-    "Conocer Estados Unidos",
-    "Ser programador",
-  ],
-  do: [
-    "Crear mi propia Startup",
-    "Volver a Estados Unidos",
-    "Conocer Europa",
-    "Ir a la FIFA World Cup 2026",
-  ],
-};
-
-export const apps: { name: string; icon: ImageMetadata }[] = [
+export const apps: Apps = [
   {
     name: "Cuenta DNI",
     icon: CUENTA_DNI,
@@ -519,7 +687,7 @@ export const apps: { name: string; icon: ImageMetadata }[] = [
   },
 ];
 
-export const music: { name: string; icon: ImageMetadata; link: string }[] = [
+export const music: Music = [
   {
     name: "Cris MJ",
     icon: CRIS_MJ,
@@ -534,42 +702,5 @@ export const music: { name: string; icon: ImageMetadata; link: string }[] = [
     name: "Jory Boy",
     icon: JORY_BOY,
     link: "https://open.spotify.com/artist/5lFhCi03HDneWzvCxGctrT?si=0d561f4b2a944c32",
-  },
-];
-
-export const timeline: {
-  date: string;
-  experiences: { title: string; desc: string }[];
-}[] = [
-  {
-    date: "2024",
-    experiences: [
-      {
-        title: "Cris MJ Official Website",
-        desc: "Diseño y construcción del sitio oficial del cantante chileno Cris MJ. Contiene galería de imágenes, información de sus tours, biografía, previews y lanzamientos, cronología de sus canciones.",
-      },
-      {
-        title: "Shopify e-commerce",
-        desc: "Tienda de anteojos de sol para cliente de Austria",
-      },
-    ],
-  },
-  {
-    date: "2023",
-    experiences: [
-      {
-        title: "Freelance",
-        desc: "Corrección y solución de código, diseño y construcción de landing pages, portafolios y componentes.",
-      },
-    ],
-  },
-  {
-    date: "2022",
-    experiences: [
-      {
-        title: "Freelance",
-        desc: "Diseño y construcción de landing pages y e-commerce con Tienda Nube",
-      },
-    ],
   },
 ];

@@ -1,5 +1,10 @@
 ---
-import { bucketlist } from "../../../assets/data";
+import { getI18N } from "../../../i18n";
+
+const { currentLocale } = Astro;
+
+const lang: string = currentLocale!;
+const i18n = getI18N(lang);
 ---
 
 <section class="text-sm max-w-xl mx-auto mb-16">
@@ -7,7 +12,7 @@ import { bucketlist } from "../../../assets/data";
   <div>
     <ul class="text-neutral-500 mb-8 dark:text-neutral-400">
       {
-        bucketlist.made.map((task) => (
+        i18n?.bucketlist.made.map((task) => (
           <div class="mb-4 flex items-center gap-2">
             <svg viewBox="0 -960 960 960" class="fill-neutral-400 w-4">
               <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
@@ -19,9 +24,12 @@ import { bucketlist } from "../../../assets/data";
     </ul>
     <ul>
       {
-        bucketlist.do.map((task) => (
+        i18n?.bucketlist.do.map((task) => (
           <div class="mb-4 flex items-center gap-2">
-            <svg viewBox="0 -960 960 960" class="fill-neutral-950 w-4 dark:fill-neutral-50">
+            <svg
+              viewBox="0 -960 960 960"
+              class="fill-neutral-950 w-4 dark:fill-neutral-50"
+            >
               <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z" />
             </svg>
             <li>{task}</li>
