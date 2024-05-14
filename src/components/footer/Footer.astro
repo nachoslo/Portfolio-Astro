@@ -30,12 +30,10 @@ const i18n = getI18N(lang);
         <a
           href={getRelativeLocaleUrl(lang, "/")}
           class:list={[
-            "transition-colors cursor-pointer",
+            "transition-colors cursor-pointer hover:text-neutral-500 dark:hover:text-neutral-400",
             {
               "text-neutral-500 dark:text-neutral-400":
                 currentPath === `/en/` || currentPath === "/",
-              "hover:text-neutral-500 dark:hover:text-neutral-400":
-                currentPath !== "/",
             },
           ]}
         >
@@ -50,17 +48,15 @@ const i18n = getI18N(lang);
         <a
           href={getRelativeLocaleUrl(lang, "/about")}
           class:list={[
-            "transition-colors cursor-pointer",
+            "transition-colors cursor-pointer hover:text-neutral-500 dark:hover:text-neutral-400",
             {
               "text-neutral-500 dark:text-neutral-400":
-                currentPath === `/en/about` || currentPath === "/about",
-              "hover:text-neutral-500 dark:hover:text-neutral-400":
-                currentPath !== "/about",
+                currentPath === `/en/about/` || currentPath === "/about/",
             },
           ]}
         >
           {
-            currentPath === `/en/about` || currentPath === "/about"
+            currentPath === `/en/about/` || currentPath === "/about/"
               ? `/ ${i18n?.text.NAV_LINK_2}`
               : i18n?.text.NAV_LINK_2
           }
@@ -70,18 +66,16 @@ const i18n = getI18N(lang);
         <a
           href={getRelativeLocaleUrl(lang, "/experience")}
           class:list={[
-            "transition-colors cursor-pointer",
+            "transition-colors cursor-pointer hover:text-neutral-500 dark:hover:text-neutral-400",
             {
               "text-neutral-500 dark:text-neutral-400":
-                currentPath === `/en/experience` ||
-                currentPath === "/experience",
-              "hover:text-neutral-500 dark:hover:text-neutral-400":
-                currentPath !== "/experience",
+                currentPath === `/en/experience/` ||
+                currentPath === "/experience/",
             },
           ]}
         >
           {
-            currentPath === `/en/experience` || currentPath === "/experience"
+            currentPath === `/en/experience/` || currentPath === "/experience/"
               ? `/ ${i18n?.text.NAV_LINK_3}`
               : i18n?.text.NAV_LINK_3
           }
